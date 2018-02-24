@@ -2,9 +2,243 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>mochen</title>
+<style>
+@charset "UTF-8";
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font: 14px/100% "微软雅黑", "Microsoft YaHei", arial; }
+
+html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 100%; }
+
+ul, ol, li {
+  list-style: none; }
+
+input, select, textarea {
+  outline: none;
+  resize: none;
+  font: 12px/100% "微软雅黑", "Microsoft YaHei"; }
+
+a {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #383a4c; }
+
+img {
+  vertical-align: middle;
+  border: none; }
+
+a, img, button, input, textarea {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
+input, textarea {
+  -webkit-appearance: none; }
+
+input::-webkit-input-placeholder {
+  color: #cbc8cb; }	
+div {
+  box-sizing: border-box; }
+
+body {
+  background: #f2f2f0; }
+
+.wrapper {
+  width: 1020px;
+  margin: 0 auto; }
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+  font: 0/0 a; }
+.clearfix:after {
+  clear: both; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+#header {
+  height: 38px;
+  line-height: 38px;
+  padding: 12px 0;
+  background: #373737; }
+  #header .logo {
+    width: 384px;
+    text-indent: 69px;
+    font-size: 20px;
+    color: #c9c7bf;
+    background: url(../../../images/imochen-logo.png) 21px 0 no-repeat; }
+  #header .nav {
+    margin-top: 3px; }
+    #header .nav li {
+      width: 80px;
+      height: 32px;
+      line-height: 32px;
+      margin-right: 12px;
+      text-align: center; }
+      #header .nav li a {
+        color: #c9c7bf; }
+      #header .nav li.on {
+        background-color: #be4d4a;
+        border-radius: 5px; }
+
+.banner {
+  height: 128px;
+  padding: 9px 0;
+  background: url(../../../images/imochen-banner.jpg);
+  text-align: center; }
+  .banner img {
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%; }
+
+.content ul {
+  width: 750px; }
+  .content ul li {
+    width: 100%;
+    height: 287px;
+    margin-top: 20px; }
+    .content ul li .article {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #e0e0e0;
+      background: #fdfdfd;
+      border-radius: 4px;
+      padding: 21px 19px 18px; }
+      .content ul li .article .title {
+        width: 100%;
+        height: 24px; }
+        .content ul li .article .title .tip {
+          width: 65px;
+          height: 100%;
+          margin-right: 4px;
+          background: url(../../../images/label.png) no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+          line-height: 24px;
+          font-size: 12px;
+          color: #fff;
+          text-indent: 6px;
+          font-family: simsun; }
+        .content ul li .article .title p {
+          font-size: 18px;
+          color: #373737;
+          height: 100%;
+          line-height: 24px; }
+      .content ul li .article .intro {
+        width: 100%;
+        height: 190px;
+        padding: 20px 0; }
+        .content ul li .article .intro img {
+          width: 200px;
+          height: 100%;
+          margin-right: 21px; }
+        .content ul li .article .intro .text-area {
+          height: 100%;
+          font-size: 13px;
+          color: #858585;
+          line-height: 22px; }
+      .content ul li .article .info {
+        width: 100%;
+        height: 32px;
+        border-top: 1px solid #eaeaea;
+        padding-top: 18px;
+        font-size: 13px;
+        color: #666666; }
+        .content ul li .article .info span {
+          margin-right: 16px; }
+          .content ul li .article .info span.read i, .content ul li .article .info span.comment i {
+            font-style: normal; }
+        .content ul li .article .info .label i {
+          font-size: 13px;
+          color: #be4d4a; }
+</style>
 </head>
 <body>
-	<p>github.io</p>
+	<header id="header">
+		<div class="wrapper">
+			<div class="logo fl">MoChen</div>
+			<ul class="nav fr clearfix">
+				<li class="fl"><a href="javasrc: void(0);">Articles</a></li>
+				<li class="fl on"><a href="javasrc: void(0);">Demos</a></li>
+				<li class="fl"><a href="javasrc: void(0);">About</a></li>
+				<li class="fl"><a href="javasrc: void(0);">Message</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="banner">
+		<img src="images/BFE-img.jpg" alt="">
+	</div>
+	<div class="content wrapper">
+		<ul class="clearfix">
+			<li class="fl">
+				<div class="article">
+					<div class="title clearfix">
+						<div class="tip fl">文·前端</div>
+						<p class="fl">在linux服务器上装svn版本管理，自动部署到项目</p>
+					</div>
+					<div class="intro clearfix">
+						<img src="images/intro-img.png" alt="intro image" class="fl">
+						<div class="text-area fl">
+							<p>1.安装install</p>
+							<p>在linux命令行输入yum install subversion</p>
+							<p>等待下载完毕，出现提示total download size</p>
+							<p>要求输入[Y/N]</p>
+							<p>果断YES,就安装完毕了，so easy！</p>
+							<p>2.创建代码仓库create</p>
+							<p>在路径/home/下创建一个SVN目录mkdir /home/svn用来存放各个仓库</p>
+						</div>
+					</div>
+					<div class="info clearfix">
+						<span class="time fl">2014年5月31日</span>
+						<span class="read fl">阅读(<i>51</i>)</span>
+						<span class="comment fl">评论(<i>3</i>)</span>
+						<span class="label">标签：<i>80后</i> / <i>儿童</i> / <i>儿童节</i> / <i>零食</i></span>
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<div class="article">
+					<div class="title clearfix">
+						<div class="tip fl">文·前端</div>
+						<p class="fl">在linux服务器上装svn版本管理，自动部署到项目</p>
+					</div>
+					<div class="intro clearfix">
+						<img src="images/intro-img.png" alt="intro image" class="fl">
+						<div class="text-area fl">
+							<p>1.安装install</p>
+							<p>在linux命令行输入yum install subversion</p>
+							<p>等待下载完毕，出现提示total download size</p>
+							<p>要求输入[Y/N]</p>
+							<p>果断YES,就安装完毕了，so easy！</p>
+							<p>2.创建代码仓库create</p>
+							<p>在路径/home/下创建一个SVN目录mkdir /home/svn用来存放各个仓库</p>
+						</div>
+					</div>
+					<div class="info clearfix">
+						<span class="time fl">2014年5月31日</span>
+						<span class="read fl">阅读(<i>51</i>)</span>
+						<span class="comment fl">评论(<i>3</i>)</span>
+						<span class="label">标签：<i>80后</i> / <i>儿童</i> / <i>儿童节</i> / <i>零食</i></span>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>
