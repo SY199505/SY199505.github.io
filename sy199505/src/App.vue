@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <p>儿玩儿温热温热我</p>
     <router-view/>
   </div>
 </template>
