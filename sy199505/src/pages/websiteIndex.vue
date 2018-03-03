@@ -21,6 +21,10 @@
 				</ul>
 			</nav>
 		</header>
+		<footer id="footer">
+			<p> © 2018-Made By yue.sun-京 ICP 备 号 无</p>
+			<p>Powered by vue.js & sass</p>
+		</footer>
 	</div>
 </template>
 
@@ -59,13 +63,19 @@
 			ul {
 				display: flex;
 				justify-content: space-around;
-				padding: 0 8rem;
+				padding: 0 10rem;
 				li {
 					width: 2.5rem;
 					height: 2.5rem;
 					background-color: #000;
+					border-radius: 50%;
 				}
 			}
 		}
+	}
+	#footer {
+		text-align: center;
+		line-height: 2rem;
+		padding: 1rem;
 	}
 </style>
