@@ -3,8 +3,89 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			border: 0;
+		}
+		ul,ol {
+			list-style: none;
+		}
+		a {
+			text-direction: none;
+		}
+		html {
+			font-size: 20px;
+		}
+		#container {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-image: url(./images/p1_imooc.png), url(./images/p1_lantern.png), url(./images/p1_bg.jpg);
+			background-repeat: no-repeat;
+			background-position: center 85%, top center, center center;
+			-webkit-background-size: 13rem 16rem, 22rem 59rem, 100% 100%;
+			background-size: 13rem 16rem, 22rem 59rem, 100% 100%;
+		}
+		#bgm {
+			position: absolute;
+			right: 3rem;
+			top: 3rem;
+			width: 8rem;
+			height: 8rem;
+			background-image: url(./images/music_disc.png);
+			-webkit-background-size: 6rem 6rem;
+			background-size: 6rem 6rem;
+			background-repeat: no-repeat;	
+			background-position: center center;	
+			border: .5rem solid #f00;
+			border-radius: 50%;
+		}
+		#bgm img {
+			position: absolute;
+			right: 0;
+			top: 2rem;
+			width: 2.5rem;
+			height: 3.5rem;
+
+		}
+		.text {
+			text-align: center;
+			font-size: 2rem;
+		}
+		.shining {
+			margin: 18rem auto 0;
+			font-size: 3rem;
+			color: #fff;
+			width: 20rem;
+			height: 6rem;
+			background-color: #f00;
+			border-radius: 50%;
+			padding: 7rem 0;
+		}
+		.date {
+			margin-top: 40rem;
+		}
+	</style>
 </head>
 <body>
-	<audio src="http://m10.music.126.net/20180304200550/1af17d45f20fd2d5b80bec0e18992fcf/ymusic/f92c/217d/0b04/dcd03bbe6fa0d90d9c6558b16a95f234.mp3" autoplay></audio>
+	<div id="container">
+		<div id="bgm">
+			<audio src="http://m10.music.126.net/20180304200550/1af17d45f20fd2d5b80bec0e18992fcf/ymusic/f92c/217d/0b04/dcd03bbe6fa0d90d9c6558b16a95f234.mp3" autoplay></audio>
+			<img src="./images/music_pointer.png" alt="">
+		</div>	
+		<div class="text">
+			<div class="shining">
+				<p>恭贺新禧</p>
+				<p>请点击</p>
+			</div>
+			<p class="date">2018年3月4日 11:51</p>
+		</div>	
+	</div>
 </body>
 </html>
