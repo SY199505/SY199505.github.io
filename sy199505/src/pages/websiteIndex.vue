@@ -21,6 +21,28 @@
 				</ul>
 			</nav>
 		</header>
+		<section class="article">
+			<div class="info">
+				<div class="date">Nov 28, 2017</div>
+				<div class="likeNum">0Likes</div>
+			</div>
+			<h2 class="title">这是一个标题</h2>
+			<p class="detail">这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述</p>
+			<a class="more" href="javascript:void(0);">more...</a>
+		</section>
+		<section class="article">
+			<div class="info">
+				<div class="date">Nov 28, 2017</div>
+				<div class="likeNum">0Likes</div>
+			</div>
+			<h2 class="title">这是一个标题</h2>
+			<p class="detail">这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述</p>
+			<a class="more" href="javascript:void(0);">more...</a>
+		</section>
+		<section class="nextPage">
+			<div class="articleList">article title</div>
+			<a class="next" href="javascript:void(0);">下一页</a>
+		</section>
 		<footer id="footer">
 			<p> © 2018-Made By yue.sun-京 ICP 备 号 无</p>
 			<p>Powered by vue.js & sass</p>
@@ -71,6 +93,45 @@
 					border-radius: 50%;
 				}
 			}
+		}
+	}
+	.article {
+		padding: 2rem 1rem;
+		border-bottom: 1px solid #ddd;
+		.info {
+			display: flex;
+			justify-content: flex-end;
+			.date {
+				margin-right: 2rem;
+			}
+		}
+		.title {
+			text-align: center;
+			font-size: 2.5rem;
+		}
+		.detail {
+			line-height: 1.5rem;
+			font-size: 1.4rem;
+		}
+		.more {
+			display: block;
+			color: #076dd0;
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+			text-align: center;
+		}
+	}
+	.nextPage {
+		color: #076dd0;
+		font-size: 1.5rem;
+		text-align: center;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid #ddd;
+		display: flex;
+		justify-content: space-around;
+		.articleList {
+		}
+		.next {
 		}
 	}
 	#footer {
