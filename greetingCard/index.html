@@ -149,12 +149,13 @@
 
 		//手机端自动播放
 		document.addEventListener('DOMContentLoaded', function () {
-				function audioAutoplay () {
+			function audioAutoplay () {
+				oAudio.play();
+				document.addEventListener('WeixinJSBridgeReady', function () {
 					oAudio.play();
-					document.addEventListener('WeixinJSBridgeReady', function () {
-						oAudio.play();
-					})
-				}
+				})
+			}
+			audioAutoplay();
 		});
 		//点击播放暂停
 		oBgm.onclick = function () {
@@ -168,5 +169,10 @@
 				oCircle.style.webkitAnimationPlayState = 'running';
 			}
 		}
+		//播放完毕旋转暂停
+		oAudio.addEventListener('ended', function () {
+			oCircle.style.animationPlayState = 'paused';
+			oCircle.style.webkitAnimationPlayState = 'paused';
+		})
 	</script>
 </html>
