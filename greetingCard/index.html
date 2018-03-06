@@ -144,6 +144,17 @@
 		let oBgm = document.getElementById('bgm');
 		let oAudio = document.getElementById('audio');
 		let oCircle = document.getElementById('circle');
+
+		//手机端自动播放
+		document.addEventListener('DOMContentLoaded', function () {
+				function audioAutoplay () {
+					oAudio.play();
+					document.addEventListener('WeixinJSBridgeReady', function () {
+						oAudio.play();
+					})
+				}
+		});
+		//点击播放暂停
 		oBgm.onclick = function () {
 			if(!oAudio.paused){
 				oAudio.pause();
