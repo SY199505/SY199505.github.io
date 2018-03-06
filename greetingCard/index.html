@@ -120,14 +120,16 @@
 			}
 		}
 		.date {
-			margin-top: 40rem;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
 		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div id="bgm">
-			<audio id="audio" src="happerNewYear.mp3" autoplay></audio>
+			<audio id="audio" src="happerNewYear.mp3" autoplay type="audio/mpeg"></audio>
 			<img id="circle" src="./images/music_disc.png" alt="">
 			<img class="playTrigger" src="./images/music_pointer.png" alt="">
 		</div>	
@@ -136,7 +138,7 @@
 				<div>恭贺新禧</div>
 				<div>请点击</div>
 			</div>
-			<p class="date">2018年3月4日 11:51</p>
+			<div class="date">2018年3月4日 11:51</div>
 		</div>	
 	</div>
 </body>
