@@ -277,10 +277,12 @@
 					oAudio.play();
 					document.addEventListener('WeixinJSBridgeReady', function () {
 						oAudio.play();
-					})
+					});
 				}
-				audioAutoplay();
 			}, false);
+			setTimeout(() => {
+				audioAutoplay();
+			}, 0);
 			//点击播放暂停
 			oBgm.onclick = function () {
 				if(!oAudio.paused){
