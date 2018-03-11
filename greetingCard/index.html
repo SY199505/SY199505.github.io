@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>恭贺新春</title>
 	<meta name="viewport" content="user-scalable=no">
 	<style>
 		* {
@@ -41,6 +41,8 @@
 			height: 7rem;
 			border: .5rem solid #f00;
 			border-radius: 50%;
+			z-index: 100;
+			background-color: #fff;
 		}
 		#circle {
 			position: absolute;
@@ -48,7 +50,7 @@
 			top: .5rem;
 			width: 6rem;
 			height: 6rem;
-			animation: audioPlay 4s linear infinite;
+			animation: rotateCircle 4s linear infinite;
 		}
 		#bgm .playTrigger {
 			position: absolute;
@@ -57,17 +59,19 @@
 			width: 2.5rem;
 			height: 3.5rem;
 		}
+		.firstPage {
+			height: 100%;
+		}
 		.text {
 			text-align: center;
 			font-size: 2rem;
 		}
 		.shining {
 			position: relative;
-			margin: 17rem auto 0;
 			font-size: 3rem;
 			color: #000;
 			border-radius: 50%;
-			padding: 6.5rem 0;
+			padding: 23.5rem 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -84,7 +88,7 @@
 			border-radius: 50%;
 			animation: shiningBlock .5s infinite alternate;
 		}
-		@keyframes audioPlay {
+		@keyframes rotateCircle {
 			0% {
 				transform: rotate(0deg);
 			}
@@ -124,55 +128,189 @@
 			bottom: 0;
 			width: 100%;
 		}
+		.secondPage {
+			z-index: 10;
+			display: none;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			background-image: url(./images/p2_bg.jpg);
+			background-repeat: no-repeat;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			transition-duration: 2s;
+		}
+		.secondPage img {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.inner {
+			width: 18rem;
+			height: 18rem;
+			animation-name: rotateAsCircle;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+			transform-origin: 0 0;
+		}
+		.middle {
+			width: 22rem;
+			height: 22rem;
+			animation-name: rotateAsCircle;
+			animation-delay: 1s;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: reverse;
+			transform-origin: 0 0;
+		}
+		.outer {
+			width: 30rem;
+			height: 30rem;
+			animation-name: rotateAsCircle;
+			animation-delay: 2s;
+			animation-duration: 1s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: reverse;
+			transform-origin: 0 0;
+		}
+		@keyframes rotateAsCircle {
+			0% {
+				transform: rotate(0deg) translate(-50%, -50%);
+			}
+			100% {
+				transform: rotate(360deg) translate(-50%, -50%);
+			}
+		}
+		.thirdPage {
+			z-index: 10;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			transform: translate(0, 100%);
+			transition-duration: 2s;
+		    background-image: url(./images/p3_bg.jpg);
+		    background-repeat: no-repeat;
+		    -webkit-background-size: 100% 100%;
+		    background-size: 100% 100%;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		}
+		.couplet {
+		    display: flex;
+			justify-content: space-around;
+		}
+		.couplet img {
+		    width: 10rem;
+    		height: 30rem;
+		}
+		.blessing {
+			width: 15rem;
+			margin: 0 auto;
+			animation-delay: 4s;
+			animation-name: rotateCircle;
+		    animation-timing-function: linear;
+		    animation-duration: 2s;
+		    animation-iteration-count: infinite;
+		}
+		.fadeout {
+			transform: translate(0, -100%);
+		}
+		.fadein {
+			transform: translate(0, 0);
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div id="bgm">
-			<audio id="audio" src="http://www.imooc.com/activity/project/project1/audio/happynewyear.mp3" autoplay type="audio/mpeg"></audio>
+			<!-- <audio id="audio" src="http://cdn.17xueba.com/test/manual/delivery/happynewyear.mp3" autoplay type="audio/mpeg"></audio> -->
 			<img id="circle" src="./images/music_disc.png" alt="">
 			<img class="playTrigger" src="./images/music_pointer.png" alt="">
-		</div>	
-		<div class="text">
-			<div class="shining">
-				<div>恭贺新禧</div>
-				<div>请点击</div>
+		</div>
+		<div class="firstPage">	
+			<div class="text">
+				<div class="shining">
+					<div>恭贺新禧</div>
+					<div>请点击</div>
+				</div>
+				<div class="date">2018年3月4日 11:51</div>
 			</div>
-			<div class="date">2018年3月4日 11:51</div>
 		</div>	
+		<div class="secondPage">
+			<img src="./images/p2_2016.png" alt="">	
+			<img class="inner" src="./images/p2_circle_inner.png" alt="">
+			<img class="middle" src="./images/p2_circle_middle.png" alt="">
+			<img class="outer" src="./images/p2_circle_outer.png" alt="">
+		</div>
+		<div class="thirdPage">
+			<div class="couplet">
+				<img src="./images/p3_couplet_second.png" alt="">
+				<img src="./images/p3_couplet_first.png" alt="">
+			</div>
+			<img class="blessing" src="./images/p3_blessing.png" alt="">
+		</div>
 	</div>
 </body>
 	<script>
-		let oBgm = document.getElementById('bgm');
-		let oAudio = document.getElementById('audio');
-		let oCircle = document.getElementById('circle');
+		window.onload = function () {
+			let oContainer = document.getElementById('container');
+			let oFirstPage = oContainer.getElementsByClassName('firstPage')[0];
+			let oSecondPage = oContainer.getElementsByClassName('secondPage')[0];
+			let oThirdPage = oContainer.getElementsByClassName('thirdPage')[0];
+			let oBgm = document.getElementById('bgm');
+			let oAudio = document.getElementById('audio');
+			let oCircle = document.getElementById('circle');
 
-		//手机端自动播放
-		document.addEventListener('DOMContentLoaded', function () {
-			function audioAutoplay () {
-				oAudio.play();
-				document.addEventListener('WeixinJSBridgeReady', function () {
+			//手机端自动播放
+			document.addEventListener('DOMContentLoaded', function () {
+				function audioAutoplay () {
 					oAudio.play();
-				})
-			}
-			audioAutoplay();
-		});
-		//点击播放暂停
-		oBgm.onclick = function () {
-			if(!oAudio.paused){
-				oAudio.pause();
-				oCircle.style.animationPlayState = 'paused';
-				oCircle.style.webkitAnimationPlayState = 'paused';
-			}else{
-				oAudio.play();
-				oCircle.style.animationPlayState = 'running';
-				oCircle.style.webkitAnimationPlayState = 'running';
-			}
+					document.addEventListener('WeixinJSBridgeReady', function () {
+						oAudio.play();
+					})
+				}
+				audioAutoplay();
+			}, false);
+			//点击播放暂停
+			oBgm.onclick = function () {
+				if(!oAudio.paused){
+					oAudio.pause();
+					oCircle.style.animationPlayState = 'paused';
+					oCircle.style.webkitAnimationPlayState = 'paused';
+				}else{
+					oAudio.play();
+					oCircle.style.animationPlayState = 'running';
+					oCircle.style.webkitAnimationPlayState = 'running';
+				}
+			};
+			//播放完毕旋转暂停
+			// oAudio.addEventListener('ended', function () {
+			// 	oCircle.style.animationPlayState = 'paused';
+			// 	oCircle.style.webkitAnimationPlayState = 'paused';
+			// }, false);	
+			//页面点击继续
+			oFirstPage.onclick = function () {
+				console.log(oFirstPage);
+				oFirstPage.style.display = 'none';
+				oSecondPage.style.display = 'block';
+				setTimeout(() => {
+					oSecondPage.setAttribute('class', "secondPage fadeout");
+					oThirdPage.setAttribute('class', "thirdPage fadein");
+					// setTimeout(() => {
+					// 	oThirdPage.style.display = 'block';
+					// }, 0)
+				}, 3000);
+			};	
 		}
-		//播放完毕旋转暂停
-		oAudio.addEventListener('ended', function () {
-			oCircle.style.animationPlayState = 'paused';
-			oCircle.style.webkitAnimationPlayState = 'paused';
-		})
 	</script>
 </html>
