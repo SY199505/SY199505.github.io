@@ -271,14 +271,6 @@
 			let oAudio = document.getElementById('audio');
 			let oCircle = document.getElementById('circle');
 
-			//手机端自动播放
-			function audioAutoplay () {
-				oAudio.play();
-				document.addEventListener('WeixinJSBridgeReady', function () {
-					oAudio.play();
-				});
-			}
-			audioAutoplay();
 			//点击播放暂停
 			oBgm.onclick = function () {
 				if(!oAudio.paused){
@@ -298,6 +290,7 @@
 			}, false);	
 			//页面点击继续
 			oFirstPage.onclick = function () {
+				oAudio.play();
 				oFirstPage.style.display = 'none';
 				oSecondPage.style.display = 'block';
 				setTimeout(() => {
