@@ -272,17 +272,13 @@
 			let oCircle = document.getElementById('circle');
 
 			//手机端自动播放
-			document.addEventListener('DOMContentLoaded', function () {
-				function audioAutoplay () {
+			function audioAutoplay () {
+				oAudio.play();
+				document.addEventListener('WeixinJSBridgeReady', function () {
 					oAudio.play();
-					document.addEventListener('WeixinJSBridgeReady', function () {
-						oAudio.play();
-					});
-				}
-			}, false);
-			setTimeout(() => {
-				audioAutoplay();
-			}, 0);
+				});
+			}
+			audioAutoplay();
 			//点击播放暂停
 			oBgm.onclick = function () {
 				if(!oAudio.paused){
@@ -302,7 +298,6 @@
 			}, false);	
 			//页面点击继续
 			oFirstPage.onclick = function () {
-				console.log(oFirstPage);
 				oFirstPage.style.display = 'none';
 				oSecondPage.style.display = 'block';
 				setTimeout(() => {
