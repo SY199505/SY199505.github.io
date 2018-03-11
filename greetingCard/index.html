@@ -233,7 +233,7 @@
 <body>
 	<div id="container">
 		<div id="bgm">
-			<!-- <audio id="audio" src="http://cdn.17xueba.com/test/manual/delivery/happynewyear.mp3" autoplay type="audio/mpeg"></audio> -->
+			<audio id="audio" src="http://cdn.17xueba.com/test/manual/delivery/happynewyear.mp3" autoplay type="audio/mpeg"></audio>
 			<img id="circle" src="./images/music_disc.png" alt="">
 			<img class="playTrigger" src="./images/music_pointer.png" alt="">
 		</div>
@@ -294,10 +294,10 @@
 				}
 			};
 			//播放完毕旋转暂停
-			// oAudio.addEventListener('ended', function () {
-			// 	oCircle.style.animationPlayState = 'paused';
-			// 	oCircle.style.webkitAnimationPlayState = 'paused';
-			// }, false);	
+			oAudio.addEventListener('ended', function () {
+				oCircle.style.animationPlayState = 'paused';
+				oCircle.style.webkitAnimationPlayState = 'paused';
+			}, false);	
 			//页面点击继续
 			oFirstPage.onclick = function () {
 				console.log(oFirstPage);
@@ -306,9 +306,6 @@
 				setTimeout(() => {
 					oSecondPage.setAttribute('class', "secondPage fadeout");
 					oThirdPage.setAttribute('class', "thirdPage fadein");
-					// setTimeout(() => {
-					// 	oThirdPage.style.display = 'block';
-					// }, 0)
 				}, 3000);
 			};	
 		}
