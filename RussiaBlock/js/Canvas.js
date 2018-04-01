@@ -21,9 +21,16 @@
 
     Canvas.prototype = {
         constructor: Canvas,
-        _init: function() {
+        _init: function () {
             this.el.width = this.width;
             this.el.height = this.height;
+        },
+        clear: function (x, y, width, height) {
+            x = x || 0;
+            y = y || 0;
+            width = width || this.width;
+            height = height || this.height;
+            this.context.clearRect(x, y, width, height);
         }
     };
     window.Canvas = Canvas;
