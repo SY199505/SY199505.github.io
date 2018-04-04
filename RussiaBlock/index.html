@@ -18,7 +18,7 @@
                 使用时间
             </div>
             <div class="panel-body">
-                00:00:00
+                <canvas id="time"></canvas>
             </div>
         </div>
         <div class="help-panel">
@@ -50,7 +50,7 @@
         </div>
         <div class="setting-panel">
             <div class="panel-body">
-                <button>暂停</button><br><br><button>设置</button>
+                <button id="btn-pause">暂停</button><br><br><button>设置</button>
             </div>
         </div>
         <div class="score-panel">
@@ -58,7 +58,7 @@
                 当前得分
             </div>
             <div class="panel-body">
-                500
+                <canvas id="score"></canvas>
             </div>
         </div>
         <div class="high-score-panel">
@@ -70,8 +70,12 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/ResourceManager.js"></script>
     <script src="js/Canvas.js"></script>
+    <script src="js/Score.js"></script>
+    <script src="js/Time.js"></script>
     <script src="js/Block.js"></script>
     <script src="js/Shape.js"></script>
     <script src="js/Keyboard.js"></script>

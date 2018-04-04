@@ -8,12 +8,12 @@
 		this.sprite = window.ResourceManager.getResource('blocks');
 	}
 
-  Block.prototype = {
-    constructor: Block,
-    draw: function (context, x, y) {
-        context.drawImage(this.sprite, (this.blockType - 1) * this.originalSize, 0, this.originalSize, this.originalSize, x * this.size, y * this.size, this.size, this.size);
-    }
-  };
+	Block.prototype = {
+		constructor: Block,
+		draw: function (context, x, y, blockPos) {
+		    context.drawImage(this.sprite, (blockPos - 1 || this.blockType - 1) * this.originalSize, 0, this.originalSize, this.originalSize, x * this.size, y * this.size, this.size, this.size);
+		}
+	};
 
 	window.Block = Block;
 })(window);

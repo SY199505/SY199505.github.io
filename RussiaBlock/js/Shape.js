@@ -1,32 +1,60 @@
 (function(window) {
     'use strict';
-
+    function random (min, max) { //大于min小于max的整数
+        return Math.floor(Math.random()*max + min);
+    }
     function Shape() {
-        this.form = Math.floor(Math.random()*4 + 1);
-        this.block = new Block(7);
-        this.x = 0;
+        this.shapeList = [
+            {
+                //方块
+                shapeType: [[1, 1],[1, 1]] 
+            }, 
+            {
+                //长条
+                shapeType: [[1, 1, 1, 1]] 
+            }, 
+            {
+                //T型
+                shapeType: [[0, 1, 0],[1, 1, 1]] 
+            }, 
+            {
+                //L型
+                shapeType: [[1, 0],[1, 0], [1, 1]] 
+            }, 
+            {
+                //Z型
+                shapeType: [[1, 1, 0],[0, 1, 1]] 
+            }, 
+            {
+                //三角型
+                shapeType: [[1, 0],[1, 1]] 
+            },
+            {
+                //凹型
+                shapeType: [[1, 0, 1], [1, 1, 1]]
+            } 
+        ];
+        this.num = random(1, 7); // 1到this.shapeList.length之间的整数
+        this.block = new Block(this.num);
+        // this.block = new Block(Math.floor(Math.random()*4 + 1));
+        this.x = 5;
         this.y = 0;
-        this.layouts = {
-            1: [
-                [0, 1, 0],
-                [1, 1, 1]
-            ],
-            2: [
-                [1, 0],
-                [1, 1],
-                [1, 0]
-            ],
-            3: [
-                [1, 1, 1],
-                [0, 1, 0]
-            ],
-            4: [
-                [0, 1],
-                [1, 1],
-                [0, 1]
-            ]
-        };
-        this.layout = this.layouts[this.form];
+        this.layout = this.shapeList[this.num - 1].shapeType;
+        // switch (this.num) {
+        //     case: 0
+        //         this.block = new Block(1);
+        //         break;
+        //     case: 1
+        //         break;
+        //     case: 2
+        //         break;
+        //     case: 3
+        //         break;
+        //     case: 4
+        //         break;
+        //     case: 5
+        //         break;
+        // }
     }
 
     Shape.prototype = {
@@ -41,7 +69,22 @@
             }
         },
         transform: function () {
-            this.layout = this.layouts[(this.form = this.form + 1 > 4 ? 1 : this.form + 1)]
+            let newLayout = [];
+            let i, j;
+            for (i = 0; i < this.layout[0].length; i++) {
+                newLayout[i] = [];
+                for (j = 0; j < this.layout.length; j++) {
+                    newLayout[i][j] = this.layout[this.layout.length - 1 - j][i];
+                }
+            }
+            this.layout = newLayout;
+            this.resetLayoutPos();
+        },
+        resetLayoutPos: function () {
+            this.x = this.x < 0 ? 0 : this.x;
+            this.y = this.y < 0 ? 0 : this.y;
+            this.x = this.x + this.layout[0].length > config.cols ? config.cols - this.layout[0].length : this.x;
+            this.y = this.y + this.layout.length > config.rows ? config.rows - this.layout.length : this.y;
         }
     };
 

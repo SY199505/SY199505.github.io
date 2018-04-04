@@ -18,8 +18,10 @@
 			var self = this;
 			self.board = board;
 			document.addEventListener('keydown', function (e) {
-				self.keyDown(e);
-			})
+				if (self.board.Tetris.status === 'palying') {
+					self.keyDown(e);
+				}
+			});
 		},
 		keyDown: function (e) {
 			this.press(keys[e.keyCode]);

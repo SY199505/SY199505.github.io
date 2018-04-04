@@ -1,7 +1,7 @@
 (function (window) {
   'use strict';
   
-  var cacheMap = new Map(); // 用于存储资源的Map对象 
+    var cacheMap = new Map(); // 用于存储资源的Map对象 
 
     var resourceTotalCount = 1; // 资源总数量
 

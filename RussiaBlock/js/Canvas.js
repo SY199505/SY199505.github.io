@@ -31,6 +31,13 @@
             width = width || this.width;
             height = height || this.height;
             this.context.clearRect(x, y, width, height);
+        },
+        drawText: function (text, x, y) {
+            const size = 25;
+            this.context.font = size + 'px Arial';
+            this.context.fillStyle = 'red';
+            this.context.textAlign = 'center';
+            this.context.fillText(text, x = x ? x : this.width / 2, y = y ? y : (this.height + size) / 2);
         }
     };
     window.Canvas = Canvas;
