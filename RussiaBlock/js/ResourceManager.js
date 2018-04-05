@@ -16,7 +16,7 @@
 
     var init = function() {
         var image = new Image();
-        image.src = 'images/blocks.png';
+        image.src = 'images/block.png';
         image.onload = function() {
             cacheMap.set('blocks', image);
             isAddLoaded();

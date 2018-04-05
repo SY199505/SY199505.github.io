@@ -4,7 +4,7 @@
 	function Tetris () {
 		this.Board = new window.Board(this);
 		this.audio;
-		this.status = 'palying';
+		this.status = 'playing';
 		(new window.Keyboard()).init(this.Board);
 	}
 
@@ -46,7 +46,7 @@
 				return;
 			}
 			this.audio.play();
-			this.status = 'palying';
+			this.status = 'playing';
 			let self = this;
 			config.interval = window.setInterval(function () {
 				self.Board.tick();

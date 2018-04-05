@@ -22,7 +22,7 @@
 
     var TetrisObj;
 
-    function startGame() {
+    function startGame () {
         ResourceManager.onResourceLoaded = function () {
             TetrisObj = new Tetris();
             TetrisObj.startGame();
@@ -30,7 +30,7 @@
         ResourceManager.init();
     };
 
-    function _init() {
+    function _init () {
         // $('#btn-start').on('click', function (ev) {
             $('.start-container').css('display', 'none');
             $('.game-container').css('display', 'block');

@@ -18,10 +18,40 @@
 			var self = this;
 			self.board = board;
 			document.addEventListener('keydown', function (e) {
-				if (self.board.Tetris.status === 'palying') {
+				if (self.board.Tetris.status === 'playing') {
 					self.keyDown(e);
 				}
 			});
+	        document.addEventListener('click', function (e) {
+                if (self.board.Tetris.status === 'playing') {
+                    switch (e.target.classList[0]) {
+                        case 'control-left':
+                            if (self.board.validPos(-1, 0)) {
+                                self.board.Shape.x -= 1;
+                                self.board.Shape.draw(self.board.context);
+                            }
+                            break;
+                        case 'control-change':
+           					if (self.board.validPos(0, 0)) {
+								self.board.Shape.transform();
+			                	self.board.Shape.draw(self.board.context);
+			                }
+                            break;
+                        case 'control-right':
+							if (self.board.validPos(1, 0)) {
+								self.board.Shape.x += 1;
+		                		self.board.Shape.draw(self.board.context);
+							}
+							break;
+                        case 'control-down':
+							if (self.board.validPos(0, 1)) {
+								self.board.Shape.y += 1;
+		                    	self.board.Shape.draw(self.board.context);
+							}
+							break;
+                    }
+                }
+	        });
 		},
 		keyDown: function (e) {
 			this.press(keys[e.keyCode]);

@@ -36,26 +36,10 @@
         ];
         this.num = random(1, 7); // 1到this.shapeList.length之间的整数
         this.block = new Block(this.num);
-        // this.block = new Block(Math.floor(Math.random()*4 + 1));
         this.x = 5;
         this.y = 0;
         this.layout = this.shapeList[this.num - 1].shapeType;
-        // switch (this.num) {
-        //     case: 0
-        //         this.block = new Block(1);
-        //         break;
-        //     case: 1
-        //         break;
-        //     case: 2
-        //         break;
-        //     case: 3
-        //         break;
-        //     case: 4
-        //         break;
-        //     case: 5
-        //         break;
-        // }
-    }
+    };
 
     Shape.prototype = {
         constructor: Shape,

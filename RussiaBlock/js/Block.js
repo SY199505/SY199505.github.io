@@ -3,8 +3,8 @@
 	
 	function Block (blockType) {
 		this.blockType = blockType;
-		this.size = 30;
-		this.originalSize = 32;
+		this.size = 60;
+		this.originalSize = 64;
 		this.sprite = window.ResourceManager.getResource('blocks');
 	}
 

@@ -4,7 +4,7 @@
     function Board(Tetris) {
         this.Tetris = Tetris;
         this.Score = new Score();
-        this.blockSize = 30;
+        this.blockSize = 60;
         this.rows = config.rows;
         this.cols = config.cols;
         this.canvas = new Canvas('c_game_main', this.cols * this.blockSize, this.rows * this.blockSize);
