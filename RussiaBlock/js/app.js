@@ -31,11 +31,11 @@
     };
 
     function _init () {
-        // $('#btn-start').on('click', function (ev) {
+        $('#btn-start').on('click', function (ev) {
             $('.start-container').css('visibility', 'hidden');
             $('.game-container').css('visibility', 'visible');
             startGame();
-        // });
+        });
 
         $('#btn-setting-outside').on('click', function (e) {
             $('.setting-container').css('visibility', 'visible');

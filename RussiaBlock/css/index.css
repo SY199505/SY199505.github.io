@@ -26,6 +26,9 @@ button
 {
     margin: 0;
     padding: 0;
+
+    border: none;
+    outline: none;
 }
 /*start-container start*/
 .start-container
@@ -101,58 +104,38 @@ button
     display: flex;
     flex-direction: column;
 
+    margin-top: -1200px;
+
     align-items: center;
 }
-#control-container .row:first-child
+#control-container .middle,
+#control-container .top,
+#control-container .down
 {
-    margin-bottom: 5rem;
-}
-#control-container .row:nth-last-child(1)
-{
-    margin-top: 5rem;
-}
-#control-container .row
-{
-    display: flex;
+    z-index: 9;
+
+    width: 100%;
+    height: 400px;
+
+    background-color: transparent;
 
     flex: 1;
 }
-#control-container .row .left,
-#control-container .row .right,
-#control-container .row .top,
-#control-container .row .down
+#control-container .middle
 {
-    width: 10rem;
+    display: flex;
+}
+#control-container .left
+{
+    background-color: transparent;
 
-    border-width: 5rem;
-    border-style: solid;
-    background-color: #000;
+    flex: 1;
 }
-#control-container .row .center
+#control-container .right
 {
-    width: 10rem;
-    height: 10rem;
-    border-width: 5rem;
-    border-style: solid;
-    border-color: #f00;
-}
-#control-container .row .left
-{
-    border-color: transparent #f00 transparent transparent;
-    margin-right: 5rem;
-}
-#control-container .row .right
-{
-    border-color: transparent transparent transparent #f00;
-    margin-left: 5rem;
-}
-#control-container .row .top
-{
-    border-color: transparent transparent #f00 transparent;
-}
-#control-container .row .down
-{
-    border-color: #f00 transparent transparent transparent;
+    background-color: transparent;
+
+    flex: 1;
 }
 /*mobil-control end*/
 
@@ -242,6 +225,9 @@ button
     border-right: 1px solid green;
     border-left: 1px solid green;
 }
+.panel-body {
+    z-index: 10;
+}
 .panel-body button
 {
     font-size: 24px;
@@ -251,4 +237,5 @@ button
     height: 40px;
 
     background-color: #fff;
+    z-index: 10;
 }
