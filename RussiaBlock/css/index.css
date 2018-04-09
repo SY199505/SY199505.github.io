@@ -126,11 +126,15 @@ button
 
     border-width: 5rem;
     border-style: solid;
+    background-color: #000;
 }
 #control-container .row .center
 {
     width: 10rem;
     height: 10rem;
+    border-width: 5rem;
+    border-style: solid;
+    border-color: #f00;
 }
 #control-container .row .left
 {
