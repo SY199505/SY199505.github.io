@@ -24,8 +24,8 @@ body
 }
 button
 {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 /*start-container start*/
 .start-container
@@ -103,6 +103,14 @@ button
 
     align-items: center;
 }
+#control-container .row:first-child
+{
+    margin-bottom: 5rem;
+}
+#control-container .row:nth-last-child(1)
+{
+    margin-top: 5rem;
+}
 #control-container .row
 {
     display: flex;
@@ -114,23 +122,25 @@ button
 #control-container .row .top,
 #control-container .row .down
 {
-    width: 5rem;
+    width: 10rem;
 
-    border-width: 2.5rem;
+    border-width: 5rem;
     border-style: solid;
 }
 #control-container .row .center
 {
-    width: 5rem;
-    height: 5rem;
+    width: 10rem;
+    height: 10rem;
 }
 #control-container .row .left
 {
     border-color: transparent #f00 transparent transparent;
+    margin-right: 5rem;
 }
 #control-container .row .right
 {
     border-color: transparent transparent transparent #f00;
+    margin-left: 5rem;
 }
 #control-container .row .top
 {
@@ -144,10 +154,10 @@ button
 
 .game-container
 {
-    visibility: hidden;
-
     position: relative;
+
     display: flex;
+    visibility: hidden;
 
     box-sizing: content-box;
     height: 1200px;
@@ -158,11 +168,12 @@ button
 .game-left,
 .game-right
 {
-    flex: 1;
     display: flex;
     flex-direction: column;
 
     text-align: center;
+
+    flex: 1;
 }
 
 .timer-panel,
@@ -175,20 +186,22 @@ button
 {
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 }
 
 .timer-panel
 {
-    flex: 1;
     border-bottom: 1px solid green;
+
+    flex: 1;
 }
 .help-panel
 {
-    flex: 2;
     border-bottom: 1px solid green;
 
+    flex: 2;
 }
 .level-panel
 {
@@ -197,18 +210,21 @@ button
 
 .next-panel
 {
-    flex: 1;
     border-bottom: 1px solid green;
+
+    flex: 1;
 }
 .setting-panel
 {
-    flex: 1;
     border-bottom: 1px solid green;
+
+    flex: 1;
 }
 .score-panel
 {
-    flex: 1;
     border-bottom: 1px solid green;
+
+    flex: 1;
 }
 .high-score-panel
 {
@@ -224,34 +240,11 @@ button
 }
 .panel-body button
 {
-    width: 100px;
-    height: 40px;
-    background-color: #fff;
     font-size: 24px;
     font-weight: bold;
-    
-}
 
-/*.panel-header
-{
-    font-size: 18px;
-    line-height: 30px;
+    width: 100px;
+    height: 40px;
 
-    height: 30px;
-    padding-left: 5px;
-
-    color: #fff;
-    background: lightsalmon;
+    background-color: #fff;
 }
-.help-panel .panel-body,
-.setting-panel .panel-body
-{
-    line-height: normal;
-}
-.timer-panel,
-.next-panel,
-.score-panel
-{
-    border-bottom: 1px solid green;
-}
-*/

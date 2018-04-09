@@ -22,6 +22,11 @@
 					self.keyDown(e);
 				}
 			});
+			document.addEventListener('click', function (e) {
+				if (self.board.Tetris.status === 'playing') {
+					self.press(e.target.classList[0]);
+				}
+			});
 		},
 		keyDown: function (e) {
 			this.press(keys[e.keyCode]);
@@ -52,6 +57,8 @@
                     	this.board.Shape.draw(this.board.context);
 					}
 					break;
+				default:
+				    break;
 			}
 		}
 	};
