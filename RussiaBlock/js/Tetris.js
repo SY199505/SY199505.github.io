@@ -2,11 +2,16 @@
 	'use strict';
 
 	function Tetris () {
-		this.Board = new window.Board(this);
 		this.audio;
+		this.Score = new window.Score();
+		this.Timer = new window.Timer();
+		this.Level = new window.Level();
+		this.HighScore = new window.HighScore();
+		this.nextShape = new window.nextShape();
+		this.Board = new window.Board(this);
 		this.status = 'playing';
 		(new window.Keyboard()).init(this.Board);
-	}
+	};
 
 	Tetris.prototype = {
 		constructor: Tetris,
@@ -16,16 +21,28 @@
 				loop: false,
 				volume: 0.1
 			});
-			this.audio.play();
+			this.playMusic();
+		},
+		playMusic: function () {
+			if (config.music) {
+				this.audio.play();
+			}
+		},
+		startTick: function () {
+			let self = this;
+			window.config.interval = window.setInterval(function () {
+				self.Board.tick();
+			}, window.config.speed);
 		},
 		stop_tick: function () {
-			window.clearInterval(config.interval);
+			window.clearInterval(window.config.interval);
 		},
 		startGame: function () {
 			this.initAudio();
-			this.resume();
+			this.startTick();
 		},
 		endGame: function () {
+			this.Timer.pause();
 			this.audio.stop();
 			this.stop_tick();
 			this.status = 'over';
@@ -40,17 +57,17 @@
 			this.status = 'pause';
 			//停止自由下落
 			this.stop_tick();
+			//停止计时器
+			this.Timer.pause();
 		},
 		resume: function () {
 			if (this.status === 'over') {
 				return;
 			}
-			this.audio.play();
+			this.Timer.resume();
+			this.playMusic();
 			this.status = 'playing';
-			let self = this;
-			config.interval = window.setInterval(function () {
-				self.Board.tick();
-			}, config.speed);
+			this.startTick();
 		}
 	}
 	

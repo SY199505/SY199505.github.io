@@ -4,8 +4,8 @@
 	window.config = {
 		cols: 13,
 		rows: 20,
-		speed: 500,
+		speed: 1000,
 		interval: 0,
-		score: 0
+		music: true
 	}
 })(window);

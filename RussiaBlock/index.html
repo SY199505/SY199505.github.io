@@ -9,83 +9,101 @@
 
 <body>
     <div class="start-container">
-        <p><button id="btn-start">开始游戏</button></p>
-        <p><button id="btn-setting">设置</button></p>
+        <button id="btn-start">开始游戏</button>
+        <button id="btn-setting-outside">设置</button>
     </div>
-        <div id="mobil-control">
-            <div class="control-change"></div>
-            <div class="control-other">
-                <div class="control-left"></div>
-                <div class="control-down"></div>
-                <div class="control-right"></div>
-            </div>
+    <div class="setting-container">
+        <div>
+            <label for="music"></label>
+            <input type="checkbox" id="music" checked>开启音乐
         </div>
+        <button class="setting-close">关闭</button>  
+    </div>
     <div class="game-container">
-
-        <div class="timer-panel">
-            <div class="panel-header">
-                使用时间
+        <div class="game-left">
+            <div class="timer-panel">
+                <div class="panel-header">
+                    使用时间
+                </div>
+                <div class="panel-body">
+                    <canvas id="time"></canvas>
+                </div>
             </div>
-            <div class="panel-body">
-                <canvas id="time"></canvas>
+            <div class="help-panel">
+                <div class="panel-body">
+                    <p>↑ 翻转方块</p>
+                    <p>↓ 加速下落</p>
+                    <p>→ 向右移动</p>
+                    <p>← 向左移动</p>
+                </div>
             </div>
-        </div>
-        <div class="help-panel">
-            <div class="panel-body">
-                <p>↑ 翻转方块</p>
-                <p>↓ 加速下落</p>
-                <p>→ 向右移动</p>
-                <p>← 向左移动</p>
-            </div>
-        </div>
-        <div class="level-panel">
-            <div class="panel-header">
-                当前级别
-            </div>
-            <div class="panel-body">
-                Level 1
+            <div class="level-panel">
+                <div class="panel-header">
+                    当前级别
+                </div>
+                <div class="panel-body">
+                    <canvas id="level"></canvas>
+                </div>
             </div>
         </div>
         <div class="game-main-panel">
             <canvas id="c_game_main"></canvas>
         </div>
-        <div class="next-panel">
-            <div class="panel-header">
-                下一方块
+        <div class="game-right">
+            <div class="next-panel">
+                <div class="panel-header">
+                    下一方块
+                </div>
+                <div class="panel-body">
+                    <canvas id="nextShape"></canvas>
+                </div>
             </div>
-            <div class="panel-body">
-                Z
+            <div class="setting-panel">
+                <div class="panel-body">
+                    <button id="btn-pause">暂停</button><br><br><button id="btn-setting-inside">设置</button>
+                </div>
             </div>
-        </div>
-        <div class="setting-panel">
-            <div class="panel-body">
-                <button id="btn-pause">暂停</button><br><br><button>设置</button>
+            <div class="score-panel">
+                <div class="panel-header">
+                    当前得分
+                </div>
+                <div class="panel-body">
+                    <canvas id="score"></canvas>
+                </div>
             </div>
-        </div>
-        <div class="score-panel">
-            <div class="panel-header">
-                当前得分
-            </div>
-            <div class="panel-body">
-                <canvas id="score"></canvas>
-            </div>
-        </div>
-        <div class="high-score-panel">
-            <div class="panel-header">
-                最高得分
-            </div>
-            <div class="panel-body">
-                19900
+            <div class="high-score-panel">
+                <div class="panel-header">
+                    最高得分
+                </div>
+                <div class="panel-body">
+                    <canvas id="highScore"></canvas>
+                </div>
             </div>
         </div>
     </div>
+    <!-- <div id="control-container">
+        <div class="row">
+            <div class="top"></div>
+        </div>
+        <div class="row">
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </div>
+        <div class="row">
+            <div class="down"></div>
+        </div>
+    </div> -->
 </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
     <script src="js/config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
     <script src="js/ResourceManager.js"></script>
     <script src="js/Canvas.js"></script>
+    <script src="js/HighScore.js"></script>
+    <script src="js/nextShape.js"></script>
     <script src="js/Score.js"></script>
-    <script src="js/Time.js"></script>
+    <script src="js/Timer.js"></script>
+    <script src="js/Level.js"></script>
     <script src="js/Block.js"></script>
     <script src="js/Shape.js"></script>
     <script src="js/Keyboard.js"></script>

@@ -13,12 +13,12 @@
 			this.render();
 		},
 		render: function () {
-			this.context.clear();
 			this.context.drawText(this.initScore);
 		},
 		addScore: function (score) {
 			this.initScore += score;
 			this.render();
+			return this.initScore;
 		}
 	}
 

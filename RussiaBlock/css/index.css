@@ -1,171 +1,257 @@
-*{
+*
+{
     box-sizing: border-box;
 }
-html {
+html
+{
     font-size: 15px;
 }
-html,body,div{
+html,
+body,
+div,
+p
+{
     margin: 0;
     padding: 0;
 }
 
-body{
-    background: #000;
-    color: #fff;
-}
+body
+{
+    overflow: hidden;
 
-/*mobil-control start*/
-#mobil-control {
+    color: #fff;
+    background: #000;
+}
+button
+{
+    padding: 0;
+    margin: 0;
+}
+/*start-container start*/
+.start-container
+{
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 1200px;
-    background-color: #f00;
-    opacity: 0.3;
+
     display: flex;
     flex-direction: column;
-    z-index: 2;
-}
-#mobil-control .control-change {
-    flex: 7;
-}
-#mobil-control .control-other {
-    flex: 3;
-    display: flex;
-}
-#mobil-control .control-other .control-left {
-    flex: 1;
-    background-color: #0f0;
-}
-#mobil-control .control-other .control-down {
-    flex: 1;
-    background-color: #f00;
-}
-#mobil-control .control-other .control-right {
-    flex: 1;
-    background-color: #00f;
-}
-/*mobil-control end*/
 
-.game-container, .start-container{
-    position: relative;
-    box-sizing: content-box;
-    height: 1200px;
-    width: 980px;
-    /*margin: 0 auto;*/
-    margin-top: 50px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
     border: 1px solid green;
-}
-
-.game-container{
-    display: none;
-}
-
-.start-container{
     background: url(../images/bg_start.png);
     background-size: cover;
-    width: 780px;
-    padding-top: 280px;
-    box-sizing: border-box;
+
+    justify-content: center;
+    align-items: center;
 }
 
-.start-container p{
-    text-align: center;
-    margin-top: 40px;
-}
+.start-container button
+{
+    font-family: 微软雅黑;
+    font-size: 20px;
+    line-height: 50px;
 
-.start-container p button{
     width: 200px;
     height: 50px;
-    line-height: 50px;
-    font-size: 20px;
-    font-family: 微软雅黑;
+    margin-top: 50px;
+
+    cursor: pointer;
+
     border: 0;
     border-radius: 50%;
     outline: none;
-    cursor: pointer;
-    background: lightblue;
+    background: lightgreen;
 }
 
-.start-container p button:hover{
+.start-container button:hover
+{
     background: lightcoral;
 }
+/*start-container end*/
 
-.game-main-panel{
+/*setting start*/
+.setting-container
+{
     position: absolute;
-    left: 100px;
+    z-index: 4;
     top: 0;
-    width: 780px;
+    left: 0;
+
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 600px;
+    margin-top: 350px;
+
+    background-color: #000;
+
+    justify-content: center;
+    align-items: center;
+}
+/*setting end*/
+
+/*mobil-control start*/
+#control-container
+{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+#control-container .row
+{
+    display: flex;
+
+    flex: 1;
+}
+#control-container .row .left,
+#control-container .row .right,
+#control-container .row .top,
+#control-container .row .down
+{
+    width: 5rem;
+
+    border-width: 2.5rem;
+    border-style: solid;
+}
+#control-container .row .center
+{
+    width: 5rem;
+    height: 5rem;
+}
+#control-container .row .left
+{
+    border-color: transparent #f00 transparent transparent;
+}
+#control-container .row .right
+{
+    border-color: transparent transparent transparent #f00;
+}
+#control-container .row .top
+{
+    border-color: transparent transparent #f00 transparent;
+}
+#control-container .row .down
+{
+    border-color: #f00 transparent transparent transparent;
+}
+/*mobil-control end*/
+
+.game-container
+{
+    visibility: hidden;
+
+    position: relative;
+    display: flex;
+
+    box-sizing: content-box;
     height: 1200px;
-    border-left: 1px solid green;
-    border-right: 1px solid green;
+
+    border: 1px solid green;
 }
-.timer-panel{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-}
-.help-panel{
-    position: absolute;
-    top: 150px;
-    left: 0;
-    width: 100px;
-}
-.level-panel{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-}
-.next-panel{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100px;
-    height: 100px;
-}
-.setting-panel{
-    position: absolute;
-    top: 150px;
-    right: 0;
-    width: 100px;
-    z-index: 3;
-}
-.score-panel{
-    position: absolute;
-    right: 0;
-    bottom: 120px;
-    width: 100px;
-    height: 100px;
-}
-.high-score-panel{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-}
-.panel-header{
-    height: 30px;
-    line-height: 30px;
-    padding-left: 5px;
-    font-size: 18px;
-    color:#fff;
-    background: lightsalmon;
-}
-.panel-body{
+
+.game-left,
+.game-right
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
     text-align: center;
-    line-height: 70px;
 }
-.help-panel .panel-body,
-.setting-panel .panel-body{
-    line-height: normal;
+
+.timer-panel,
+.help-panel,
+.level-panel,
+.next-panel,
+.setting-panel,
+.score-panel,
+.high-score-panel
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.timer-panel, .next-panel, .score-panel{
+
+.timer-panel
+{
+    flex: 1;
     border-bottom: 1px solid green;
 }
+.help-panel
+{
+    flex: 2;
+    border-bottom: 1px solid green;
+
+}
+.level-panel
+{
+    flex: 1;
+}
+
+.next-panel
+{
+    flex: 1;
+    border-bottom: 1px solid green;
+}
+.setting-panel
+{
+    flex: 1;
+    border-bottom: 1px solid green;
+}
+.score-panel
+{
+    flex: 1;
+    border-bottom: 1px solid green;
+}
+.high-score-panel
+{
+    flex: 1;
+}
+.game-main-panel
+{
+    width: 780px;
+    height: 1200px;
+
+    border-right: 1px solid green;
+    border-left: 1px solid green;
+}
+.panel-body button
+{
+    width: 100px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+/*.panel-header
+{
+    font-size: 18px;
+    line-height: 30px;
+
+    height: 30px;
+    padding-left: 5px;
+
+    color: #fff;
+    background: lightsalmon;
+}
+.help-panel .panel-body,
+.setting-panel .panel-body
+{
+    line-height: normal;
+}
+.timer-panel,
+.next-panel,
+.score-panel
+{
+    border-bottom: 1px solid green;
+}
+*/

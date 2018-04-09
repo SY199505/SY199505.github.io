@@ -33,6 +33,7 @@
             this.context.clearRect(x, y, width, height);
         },
         drawText: function (text, x, y) {
+            this.clear();
             const size = 25;
             this.context.font = size + 'px Arial';
             this.context.fillStyle = 'red';

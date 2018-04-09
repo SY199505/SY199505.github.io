@@ -32,18 +32,34 @@
 
     function _init () {
         // $('#btn-start').on('click', function (ev) {
-            $('.start-container').css('display', 'none');
-            $('.game-container').css('display', 'block');
+            $('.start-container').css('visibility', 'hidden');
+            $('.game-container').css('visibility', 'visible');
             startGame();
-            new Score().init();
-            new Time().init();
         // });
-        $('#btn-setting').on('click', function (ev) {
-            alert('You clicked the setting button.');
+
+        $('#btn-setting-outside').on('click', function (e) {
+            $('.setting-container').css('visibility', 'visible');
         });
+
+        $('#btn-setting-inside').on('click', function (e) {
+            TetrisObj.pauseGame();
+            $('.setting-container').css('visibility', 'visible');
+        });
+
+        $('.setting-close').on('click', function (e) {
+            if (TetrisObj) {
+                TetrisObj.resume();
+            }
+            $('.setting-container').css('visibility', 'hidden');
+        });
+
+        $('#music').on('click', function (e) {
+            config.music = $('#music').get().checked;
+            console.log(config.music);
+        });
+
         $('#btn-pause').on('click', function (e) {
             let pauseBtn = e.target;
-            console.log(pauseBtn.innerText);
             if (pauseBtn.innerText === '暂停') {
                 TetrisObj.pauseGame();
                 pauseBtn.innerText = '继续';

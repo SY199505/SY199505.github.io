@@ -10,8 +10,9 @@
 
 	Block.prototype = {
 		constructor: Block,
-		draw: function (context, x, y, blockPos) {
-		    context.drawImage(this.sprite, (blockPos - 1 || this.blockType - 1) * this.originalSize, 0, this.originalSize, this.originalSize, x * this.size, y * this.size, this.size, this.size);
+		draw: function (context, x, y, blockPos, size) {
+			size = size || this.size;
+		    context.drawImage(this.sprite, (blockPos - 1 || this.blockType - 1) * this.originalSize, 0, this.originalSize, this.originalSize, x * size, y * size, size, size);
 		}
 	};
 

@@ -2,13 +2,10 @@
     'use strict';
     function random (min, max) { //大于min小于max的整数
         return Math.floor(Math.random()*max + min);
-    }
-    function Shape() {
-        this.shapeList = [
-            {
-                //方块
-                shapeType: [[1, 1],[1, 1]] 
-            }, 
+    };
+
+    function Shape () {
+        this.shapeList = [ 
             {
                 //长条
                 shapeType: [[1, 1, 1, 1]] 
@@ -22,9 +19,17 @@
                 shapeType: [[1, 0],[1, 0], [1, 1]] 
             }, 
             {
+                //反L型
+                shapeType: [[0, 1],[0, 1], [1, 1]] 
+            }, 
+            {
                 //Z型
                 shapeType: [[1, 1, 0],[0, 1, 1]] 
-            }, 
+            },  
+            {
+                //反Z型
+                shapeType: [[0, 1, 1],[1, 1, 0]] 
+            },
             {
                 //三角型
                 shapeType: [[1, 0],[1, 1]] 
@@ -32,22 +37,26 @@
             {
                 //凹型
                 shapeType: [[1, 0, 1], [1, 1, 1]]
-            } 
+            },
+            {
+                //方块
+                shapeType: [[1, 1],[1, 1]] 
+            }
         ];
         this.num = random(1, 7); // 1到this.shapeList.length之间的整数
         this.block = new Block(this.num);
-        this.x = 5;
+        this.x = 0;
         this.y = 0;
         this.layout = this.shapeList[this.num - 1].shapeType;
     };
 
     Shape.prototype = {
         constructor: Shape,
-        draw: function(context) {
+        draw: function(context, size) {
             for (var i = 0; i < this.layout.length; i++) {
                 for (var j = 0; j < this.layout[i].length; j++) {
                     if (this.layout[i][j]) {
-                        this.block.draw(context, j + this.x, i + this.y);
+                        this.block.draw(context, j + this.x, i + this.y, undefined, size);
                     }
                 }
             }
