@@ -49,17 +49,18 @@ button
     justify-content: center;
     align-items: center;
     z-index: 9;
+    margin-top: -15rem;
 }
 
 .start-container button
 {
     font-family: 微软雅黑;
-    font-size: 20px;
-    line-height: 50px;
+    font-size: 2rem;
+    line-height: 2rem;
 
-    width: 200px;
-    height: 50px;
-    margin-top: 50px;
+    width: 12rem;
+    height: 12rem;
+    margin-top: 6rem;
 
     cursor: pointer;
 
@@ -79,7 +80,7 @@ button
 .setting-container
 {
     position: absolute;
-    z-index: 8;
+    z-index: 9;
     top: 0;
     left: 0;
 
@@ -96,6 +97,16 @@ button
 
     justify-content: center;
     align-items: center;
+    font-size: 7rem;
+}
+.setting-container input {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.setting-container .setting-close {
+    width: 12rem;
+    height: 4rem;
+    font-size: 3rem;
 }
 /*setting end*/
 
@@ -151,6 +162,7 @@ button
     height: 1200px;
 
     border: 1px solid green;
+    margin-top: 15rem;
 }
 
 .game-left,

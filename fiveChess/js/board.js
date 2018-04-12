@@ -32,8 +32,8 @@
 						}else{
 							self.chessesData[posX][posY] = 2;
 						}
+						bColor = !bColor;
 					}
-					bColor = !bColor;
 				});
 			};
 		},
