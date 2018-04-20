@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.star {
+			margin: 0 auto;
+			padding: 0;
+			list-style: none;
+			width: 100px;
+		}
+		.star li {
+			width: 20px;
+			height: 30px;
+			background: url(star.png);
+			background-repeat: no-repeat;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<ul id="rating" class="star">
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+	</ul>
+	<ul id="rating2" class="star">
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+		<li class="rating-item"></li>
+	</ul>
+</body>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script>
+		let rating = (function () {
+			
+			//默认参数
+			let defaults = {
+				num: 0,
+				readOnly: false,
+				select: function () {
+
+				},
+				chosen: function () {
+
+				}
+			};
+
+			//点亮整颗星星 
+			let LightEntire = function (el, options) {
+				this.$el = $(el);
+				this.$item = this.$el.find('.rating-item');
+				this.opts = options;
+			};
+
+			LightEntire.prototype.init = function () {
+				this.lightOn(this.opts.num);
+				this.bindEvent();
+			};
+
+			LightEntire.prototype.lightOn = function (num) {
+				num = parseInt(num);
+				this.$item.each(function(index) {
+					if (index < num) {
+						$(this).css('background-position', '0 0')
+					}else {
+						$(this).css('background-position', '-47px 0');
+					}
+				});
+			};
+
+			LightEntire.prototype.bindEvent = function () {
+				let self = this,
+					itemLength = self.$item.length;
+				self.$el.on('mouseover', '.rating-item', function () {
+					let num = $(this).index() + 1;
+					self.lightOn(num);
+
+					(typeof self.opts.select === 'function') && self.opts.select.call(self, num, itemLength);
+					self.$el.trigger('select', []);
+				}).on('click', '.rating-item', function () {
+					self.opts.num = $(this).index() + 1;
+					(typeof self.opts.chosen === 'function') && self.opts.chosen.call(self, self.opts.num, itemLength);
+				}).on('mouseout', function () {
+					self.lightOn(self.opts.num);
+				});
+			};
+
+			function init (el, options) {
+				options = $.extend({}, defaults, options);
+				new LightEntire(el, options).init();
+			};
+
+			return {
+				init: init
+			}
+		})();
+
+		rating.init('#rating', {
+			num: 2,
+			select: function () {
+
+			}
+		});
+		rating.init('#rating2', {
+			num: 3,
+			select: function (num, total) {
+				console.log(this);
+				console.log(num , total);
+
+			},
+			chosen: function () {
+				
+			}
+		});
+	</script>
+</html>

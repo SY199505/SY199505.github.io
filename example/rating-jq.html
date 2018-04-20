@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.rating {
+			margin: 0 auto;
+			padding: 0;
+			list-style: none;
+			width: 100px;
+		}
+		.rating li {
+			width: 20px;
+			height: 30px;
+			background: url(star.png);
+			background-repeat: no-repeat;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<ul id="star" class="rating">
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+	</ul>
+	<ul id="star2" class="rating">
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+	</ul>
+</body>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script>
+		'use strict';
+		
+		let rating = (function () {
+
+			function light (selector, num) {
+				selector.each(function(index) {
+					if (index < num) {
+						$(this).css('background-position', '0 0')
+					}else {
+						$(this).css('background-position', '-47px 0');
+					}
+				});
+				
+			};
+
+
+			function init (selector, num) {
+				let $star = $(selector);
+				let $item = $star.find('.item');
+
+				light($item, num);
+
+				$star.on('mouseover', '.item', function () {
+					light($item, $(this).index() + 1)
+				}).on('click', '.item', function () {
+					num = $(this).index() + 1;
+				}).on('mouseout', function () {
+					light($item, num);
+				});
+			};
+
+			$.fn.extend({
+				rating: function (num) {
+					return this.each(function () {
+						init(this, num);
+					});
+				}
+			});
+
+			return {
+				init: init
+			}
+
+		})();
+
+
+		$('#star').rating(2);
+		$('#star2').rating(5);
+	</script>
+</html>
